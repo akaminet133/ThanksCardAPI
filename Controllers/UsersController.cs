@@ -25,10 +25,7 @@ namespace ThanksCardAPI.Controllers
         public async Task<ActionResult<IEnumerable<User>>> GetUsers()
         {
             // Include を指定することで Department (Department) を同時に取得する。
-            return await _context.Users
-                                    .Include(User => User.Department)
-                                    .ToListAsync();
-            //return await _context.Users.ToListAsync();
+            return await _context.Users.ToListAsync();
         }
 
         // GET: api/Users/5
@@ -37,7 +34,7 @@ namespace ThanksCardAPI.Controllers
         {
             var user = await _context.Users.FindAsync(id);
 
-            if (user == null)
+            if (user == null || user.Del_flg == 1)
             {
                 return NotFound();
             }
@@ -50,6 +47,9 @@ namespace ThanksCardAPI.Controllers
         public async Task<IActionResult> PutUser(long id, User user)
         {
             if (id != user.Id)
+            {
+                return BadRequest();
+            }else if (user.Del_flg == 1)
             {
                 return BadRequest();
             }
@@ -66,6 +66,10 @@ namespace ThanksCardAPI.Controllers
             catch (DbUpdateConcurrencyException)
             {
                 if (!UserExists(id))
+                {
+                    return NotFound();
+                }
+                else if (user.Del_flg == 1)
                 {
                     return NotFound();
                 }
@@ -96,7 +100,7 @@ namespace ThanksCardAPI.Controllers
         public async Task<ActionResult<User>> DeleteUser(long id)
         {
             var user = await _context.Users.FindAsync(id);
-            if (user == null)
+            if (user == null || user.Del_flg == 1)
             {
                 return NotFound();
             }

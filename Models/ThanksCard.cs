@@ -13,7 +13,8 @@ namespace ThanksCardAPI.Models
         public long ToId { get; set; }
         public virtual User To { get; set; }
         public DateTime CreatedDateTime { get; set; }
-
-        public virtual ICollection<ThanksCardTag> ThanksCardTags { get; set; }
+        //ƒJƒeƒSƒŠ[
+        public long? Category_Id { get; set; }
+        public virtual Category Categorys{ get; set; }
     }
 }
