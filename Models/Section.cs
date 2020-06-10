@@ -13,7 +13,7 @@ namespace ThanksCardAPI.Models
         public int Del_flg { get; set; }
 
         // 多対1: Section エンティティは1つの Department エンティティに属する
-        public long? Dep_Id { get; set; }
+        public long DepartmentId { get; set; }
         public virtual Department Department { get; set; }
         // 1対多: Section エンティティには複数の Udk エンティティが属する
         public virtual ICollection<User_Dep_Kanri> User_Dep_kanris { get; set; }

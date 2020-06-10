@@ -24,7 +24,8 @@ namespace ThanksCardAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<User_Dep_Kanri>>> GetUser_Dep_Kanri()
         {
-            return await _context.User_Dep_Kanris.Include(User_Dep_Kanri => User_Dep_Kanri.User)
+            return await _context.User_Dep_Kanris
+                                    .Include(User_Dep_Kanri => User_Dep_Kanri.User)
                                     .Include(User_Dep_Kanri => User_Dep_Kanri.Section)
                                     .ThenInclude(Section => Section.Department)
                                     .ToListAsync();

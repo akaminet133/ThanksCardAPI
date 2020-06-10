@@ -24,7 +24,8 @@ namespace ThanksCardAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Section>>> GetSections()
         {
-            return await _context.Sections.ToListAsync();
+            return await _context.Sections
+                                    .Include(Section => Section.Department).ToListAsync();
         }
 
         // GET: api/Sections/5

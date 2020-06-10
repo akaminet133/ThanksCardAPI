@@ -8,13 +8,17 @@ namespace ThanksCardAPI.Models
         public long Id { get; set; }
         public string Title { get; set; }
         public string Body { get; set; }
+        public long Fav { get; set; }
+        public DateTime CreatedDateTime { get; set; }
+
+        //送信者情報 : 多対1
         public long FromId { get; set; }
         public virtual User From { get; set; }
+        //受信者情報
         public long ToId { get; set; }
         public virtual User To { get; set; }
-        public DateTime CreatedDateTime { get; set; }
         //カテゴリー
-        public long? Category_Id { get; set; }
-        public virtual Category Categorys{ get; set; }
+        public long CategoryId { get; set; }
+        public virtual Category Category{ get; set; }
     }
 }
