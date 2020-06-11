@@ -21,7 +21,7 @@ namespace ThanksCardAPI.Controllers
         #region GetThanksCards
         // GET: api/ThanksCard
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ThanksCard>>> GetThanksCards()
+        public async Task<ActionResult<IEnumerable<ThanksCards>>> GetThanksCards()
         {
             // Include を指定することで From, To (Userモデル) を同時に取得する。
             return await _context.ThanksCards
@@ -35,7 +35,7 @@ namespace ThanksCardAPI.Controllers
 
         // POST api/ThanksCard
         [HttpPost]
-        public async Task<ActionResult<ThanksCard>> Post([FromBody] ThanksCard thanksCard)
+        public async Task<ActionResult<ThanksCards>> Post([FromBody] ThanksCards thanksCard)
         {
             // From, To には既に存在しているユーザが入るため、更新の対象から外す。
             //_context.Users.Attach(thanksCard.From);

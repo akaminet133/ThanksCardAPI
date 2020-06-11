@@ -120,7 +120,7 @@ namespace ThanksCardAPI.Migrations
                     b.ToTable("Sections");
                 });
 
-            modelBuilder.Entity("ThanksCardAPI.Models.ThanksCard", b =>
+            modelBuilder.Entity("ThanksCardAPI.Models.ThanksCards", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -226,7 +226,7 @@ namespace ThanksCardAPI.Migrations
             modelBuilder.Entity("ThanksCardAPI.Models.Category", b =>
                 {
                     b.HasOne("ThanksCardAPI.Models.Department", "Department")
-                        .WithMany()
+                        .WithMany("Categorys")
                         .HasForeignKey("DepartmentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -234,7 +234,7 @@ namespace ThanksCardAPI.Migrations
 
             modelBuilder.Entity("ThanksCardAPI.Models.Comment_Rireki", b =>
                 {
-                    b.HasOne("ThanksCardAPI.Models.ThanksCard", "ThanksCard")
+                    b.HasOne("ThanksCardAPI.Models.ThanksCards", "ThanksCard")
                         .WithMany()
                         .HasForeignKey("ThanksCardId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -250,13 +250,13 @@ namespace ThanksCardAPI.Migrations
             modelBuilder.Entity("ThanksCardAPI.Models.Section", b =>
                 {
                     b.HasOne("ThanksCardAPI.Models.Department", "Department")
-                        .WithMany()
+                        .WithMany("Sections")
                         .HasForeignKey("DepartmentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("ThanksCardAPI.Models.ThanksCard", b =>
+            modelBuilder.Entity("ThanksCardAPI.Models.ThanksCards", b =>
                 {
                     b.HasOne("ThanksCardAPI.Models.Category", "Category")
                         .WithMany("ThanksCards")

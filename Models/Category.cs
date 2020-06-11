@@ -15,6 +15,6 @@ namespace ThanksCardAPI.Models
         public virtual Department Department{ get; set; }
 
         // 1対多: ThanksCard エンティティには複数の Category エンティティが属する
-        public virtual ICollection<ThanksCard> ThanksCards { get; set; }
+        public virtual ICollection<ThanksCards> ThanksCards { get; set; }
     }
 }

@@ -9,9 +9,9 @@ namespace ThanksCardAPI.Models
         public string Name { get; set; }
         public int Del_flg { get; set; }
         // 1対多: Department エンティティには複数の Section エンティティが属する
-        //public virtual ICollection<Section> Sections { get; set; }
+        public virtual ICollection<Section> Sections { get; set; }
         // 1対多: Department エンティティには複数の Category エンティティが属する
-        //public virtual ICollection<Category> Categorys { get; set; }
+        public virtual ICollection<Category> Categorys { get; set; }
 
     }
 }

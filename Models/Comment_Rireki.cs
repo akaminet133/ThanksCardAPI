@@ -12,7 +12,7 @@ namespace ThanksCardAPI.Models
         public string Comment { get; set; }
         public DateTime CommentDate { get; set; }
         public long ThanksCardId { get; set; }
-        public ThanksCard ThanksCard { get; set; }
+        public ThanksCards ThanksCard { get; set; }
         public long UserId { get; set; }
         public User User { get; set; }
     }

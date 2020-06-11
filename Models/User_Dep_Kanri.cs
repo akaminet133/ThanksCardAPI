@@ -16,6 +16,6 @@ namespace ThanksCardAPI.Models
         public virtual Section Section { get; set; }
 
         // 1対多: ThanksCard エンティティには複数の UDK エンティティが属する
-        //public virtual ICollection<ThanksCard> ThanksCards { get; set; }
+        //public virtual ICollection<ThanksCards> ThanksCards { get; set; }
     }
 }

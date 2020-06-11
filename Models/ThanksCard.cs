@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace ThanksCardAPI.Models
 {
-    public class ThanksCard
+    public class ThanksCards
     {
         public long Id { get; set; }
         public string Title { get; set; }
